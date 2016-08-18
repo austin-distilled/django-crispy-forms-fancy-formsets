@@ -4,16 +4,6 @@
 
 <h2>{{formset.verbose_name_plural}}</h2>
 
-{% if not formset.queryset.exists %}
-    <div class="alert block-message alert-info">
-        <p>
-            {% blocktrans with name=formset.verbose_name_plural|lower%}
-                Any {{ name }} has yet to be added.
-            {% endblocktrans %}
-        </p>
-    </div>
-{% endif %}
-
 <div>
   {{ formset.management_form|crispy }}
 </div>

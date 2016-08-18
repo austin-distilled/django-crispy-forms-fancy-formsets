@@ -18,9 +18,14 @@ class FancyBaseInlineFormSet(BaseInlineFormSet):
         self.model_name = str(self.model._meta).split(".")[-1]
         super(FancyBaseInlineFormSet, self).__init__(*args, **kwargs)
         self.empty_form = self._construct_form(9999999999999)
+        seen_extra = False
         for form in self.forms:
             if form in self.extra_forms:
-                form.is_extra = True
+                if not seen_extra:
+                    form.is_extra = True
+                else:
+                    seen_extra = True
+                    form.is_extra = True
                 if self.can_delete:
                     form.fields[DELETION_FIELD_NAME].initial = True
             else:
