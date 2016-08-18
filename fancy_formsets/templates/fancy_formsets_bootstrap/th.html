@@ -5,4 +5,6 @@
   class="control-label {% if field.field.required %}requiredField{% endif %}">
   {{ field.label|safe }}{% if field.field.required %}<span class="asteriskField">*</span>{% endif %}
 </th>
+{% elif field|is_checkbox %}
+<th></th>
 {% endif %}
