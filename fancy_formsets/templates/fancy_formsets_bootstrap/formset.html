@@ -45,9 +45,6 @@
       {% for field in formset.empty_form.visible_fields %}
         {% include "fancy_formsets_bootstrap/th.html" %}
       {% endfor %}
-      {% if not formset.readonly %}
-        <th>{% trans "Delete" %}</th>
-      {% endif %}
     </tr>
   {% endif %}
 </thead>
