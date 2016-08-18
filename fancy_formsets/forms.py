@@ -22,7 +22,7 @@ class FancyBaseInlineFormSet(BaseInlineFormSet):
         for form in self.forms:
             if form in self.extra_forms:
                 if not seen_extra:
-                    form.is_extra = True
+                    form.is_extra = False
                 else:
                     seen_extra = True
                     form.is_extra = True
